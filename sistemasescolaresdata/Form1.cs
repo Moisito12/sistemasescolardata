@@ -185,20 +185,35 @@ namespace sistemasescolaresdata
             writer.WriteLine("\t\t\talumnos : [");
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                writer.WriteLine("\t\t{");
-                writer.WriteLine(("\t\t \"Matricula\":") + "\"" + dataGridView1[0, i].Value.ToString() + "\"," + ",");
-                writer.WriteLine(("\t\t \"Apellido Paterno\":") + "\"" + dataGridView1[1, i].Value.ToString() + "\"" + ",");
-                writer.WriteLine(("\t\t \"Apellido Materno\":") + "\"" + dataGridView1[2, i].Value.ToString() + "\"" + ",");
-                writer.WriteLine(("\t\t \"Nombre\":") + "\"" + dataGridView1[3, i].Value.ToString() + "\"" + ",");
-                writer.WriteLine(("\t\t \"Fecha de Nacimiento\":") + "\"" + Convert.ToDateTime(dataGridView1[4, i].Value.ToString()).Year + "-" +
-                Convert.ToDateTime(dataGridView1[4, i].Value.ToString()).Month + "-" + Convert.ToDateTime(dataGridView1[4, i].Value.ToString()).Day + "\"" + ",");
-                writer.WriteLine(("\t\t \"Correo\":") + dataGridView1[5, i].Value.ToString() + ",");
-                writer.WriteLine(("\t\t \"Telefóno\":") + dataGridView1[6, i].Value.ToString() + "\n}");
+                if ((i + 1) == dataGridView1.Rows.Count)
+                {
+                    writer.WriteLine("\t\t{\n" + ("\t\t\t\"Matricula\":" + dataGridView1[0, i].Value.ToString() + ","
+                        + "\n\t\t\t\"Apellido P\":" + "\"" + dataGridView1[1, i].Value.ToString() + "\","
+                        + "\n\t\t\t\"Apellido M\":" + "\"" + dataGridView1[2, i].Value.ToString() + "\","
+                        + "\n\t\t\t\"Nombre\":" + "\"" + dataGridView1[3, i].Value.ToString() + "\","
+                        + "\n\t\t\t\"Fecha de nacmiento\":" + "\""
+                        + Convert.ToDateTime(dataGridView1[4, i].Value.ToString()).Year + "-" + Convert.ToDateTime(dataGridView1[4, i].Value.ToString()).Month + "-" + Convert.ToDateTime(dataGridView1[4, i].Value.ToString()).Day + "\","
+                        + "\n\t\t\t\"Correo\":" + "\"" + dataGridView1[5, i].Value.ToString() + "\","
+                        + "\n\t\t\t\"Telefono\":" + dataGridView1[6, i].Value.ToString() + "," + "\n\t\t}"));
+
+                }
+                else
+                {
+                    writer.WriteLine("\t\t{\n" + ("\t\t\t\"Matricula\":" + dataGridView1[0, i].Value.ToString() + ","
+                        + "\n\t\t\t\"Apellido P\":" + "\"" + dataGridView1[1, i].Value.ToString() + "\","
+                        + "\n\t\t\t\"Apellido M\":" + "\"" + dataGridView1[2, i].Value.ToString() + "\","
+                        + "\n\t\t\t\"Nombre\":" + "\"" + dataGridView1[3, i].Value.ToString() + "\","
+                        + "\n\t\t\t\"Fecha de nacmiento\":" + "\""
+                        + Convert.ToDateTime(dataGridView1[4, i].Value.ToString()).Year + "-" + Convert.ToDateTime(dataGridView1[4, i].Value.ToString()).Month + "-" + Convert.ToDateTime(dataGridView1[4, i].Value.ToString()).Day + "\","
+                        + "\n\t\t\t\"Correo\":" + "\"" + dataGridView1[5, i].Value.ToString() + "\","
+                        + "\n\t\t\t\"Telefono\":" + dataGridView1[6, i].Value.ToString() + "," + "\n\t\t},"));
+
+                }
             }
             writer.WriteLine("\t\t\t\t ]");
             writer.WriteLine("\t}");
+            writer.WriteLine("}");
             writer.Close();
-
         }
 
         private void button4_Click(object sender, EventArgs e)
