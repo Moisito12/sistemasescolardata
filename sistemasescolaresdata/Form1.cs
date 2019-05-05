@@ -114,7 +114,7 @@ namespace sistemasescolaresdata
             saveFileDialog1.ShowDialog();
             string archivo;
             archivo = saveFileDialog1.FileName;
-            MessageBox.Show(archivo);
+            MessageBox.Show("Guardado de Documento exitoso", "Generarando SQL");
             StreamWriter writer = new StreamWriter(archivo);
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
@@ -141,7 +141,7 @@ namespace sistemasescolaresdata
             saveFileDialog1.ShowDialog();
             string archivo;
             archivo = saveFileDialog1.FileName;
-            MessageBox.Show(archivo);
+            MessageBox.Show("Guardado de Documento exitoso", "Generarando CSV"); ;
             StreamWriter writer = new StreamWriter(archivo);
             for (int i = 0; i < dataGridView1.Columns.Count; i++)
             {
@@ -179,7 +179,7 @@ namespace sistemasescolaresdata
             saveFileDialog1.ShowDialog();
             string archivo;
             archivo = saveFileDialog1.FileName;
-            MessageBox.Show(archivo);
+            MessageBox.Show("Guardado de Documento exitoso","Generarando JSON");
             StreamWriter writer = new StreamWriter(archivo);
             writer.WriteLine("{\"sistemas_escolar\" :");
             writer.WriteLine("\t\t\talumnos : [");
@@ -226,7 +226,7 @@ namespace sistemasescolaresdata
 
             string archivo;
             archivo = saveFileDialog1.FileName;
-            MessageBox.Show(archivo);
+            MessageBox.Show("Guardado de Documento exitoso", "Generarando Excel");
 
             var wordbook = new XLWorkbook();
             var hoja = wordbook.Worksheets.Add("Alumnos");
@@ -266,7 +266,7 @@ namespace sistemasescolaresdata
 
                 string archivo;
                 archivo = saveFileDialog1.FileName;
-                MessageBox.Show(archivo);
+                MessageBox.Show("Guardado de Documento exitoso", "Generarando PDF");
 
                 Document pdf = new Document(iTextSharp.text.PageSize.LETTER.Rotate());
                 PdfWriter.GetInstance(pdf, new FileStream(saveFileDialog1.FileName, FileMode.Create));
